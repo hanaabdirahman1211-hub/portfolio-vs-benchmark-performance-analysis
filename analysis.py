@@ -36,3 +36,22 @@ print(returns)
 
 print("\nBENCHMARK:")
 print(benchmark)
+
+df = portfolio.merge(returns, on="Stock")
+
+print("\nMERGED PORTFOLIO + RETURNS:")
+print(df)
+
+df = df.merge(benchmark, on="Stock")
+
+print("\nAFTER ADDING BENCHMARK:")
+print(df)
+
+df["Portfolio_Contribution"] = df["Weight"] * df["Return"]
+
+print("\nWITH CONTRIBUTION:")
+print(df)
+
+portfolio_return = df["Portfolio_Contribution"].sum()
+
+print("\nPortfolio Return:", portfolio_return)
