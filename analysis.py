@@ -55,3 +55,21 @@ print(df)
 portfolio_return = df["Portfolio_Contribution"].sum()
 
 print("\nPortfolio Return:", portfolio_return)
+
+# =========================
+# BENCHMARK CALCULATION
+# =========================
+
+df["Benchmark_Contribution"] = df["Benchmark_Weight"] * df["Return"]
+
+benchmark_return = df["Benchmark_Contribution"].sum()
+
+print("\nBenchmark Return:", benchmark_return)
+
+# =========================
+# ACTIVE RETURN
+# =========================
+
+active_return = portfolio_return - benchmark_return
+
+print("Active Return:", active_return)
